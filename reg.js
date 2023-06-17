@@ -34,20 +34,34 @@ const articleFun = function(posts){
 //Delete Post from localStorage
 const deletePost = function(postIndex){
     const posts = getPosts();
-    posts.splice(postIndex, 1);
-    localStorage.setItem('posts', JSON.stringify(posts));
+  const del =   posts.filter(function(post, index){
+        
+         return index !== postIndex;
+         
+    });
+    
+    
+
+   localStorage.setItem('posts', JSON.stringify(del));
     displayArticles();
 }
 
 btnPost.addEventListener('click',function(e){
     e.preventDefault();
+    let lastArr = getPosts().length -1;
+    lastArr = lastArr + 1;
+ 
     const aricles = {
+        id : lastArr,
         image : imageUrl.value,
         title : title.value,
-        article: article.value
+        article: article.value,
+        postBy : userInfo.username
     }
+    
     articleFun(aricles);
-    console.log('post success');
+    alert('post success');
+
     imageUrl.value = '';
     title.value = '';
     article.value = '';
@@ -56,14 +70,17 @@ btnPost.addEventListener('click',function(e){
 
 const displayArticles = function(){
     const posts = getPosts();
-    // postDisplay.innerHTML = '';
+    const userInformation = getUserInfoFromLocal();
+   
+     postDisplay.innerHTML = '';
     posts.forEach((post, index) => {
         postDisplay.innerHTML += `
             <div class="post">
                 <img src="${post.image}" alt="invalid image" srcset="">
                 <h2>${post.title}</h2>
                 <p>${post.article}</p>
-                <button class="deleteButton" onclick="deletePost(${index})">Delete</button>
+                 
+                 ${userInformation.username === post.postBy ? `<button class="deleteButton" onclick="deletePost(${index})">Delete</button>`: ``}
             </div>
         `;
     });
