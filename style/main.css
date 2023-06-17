@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.gen-container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+.container {
+    background-color: #ddd;
+    width: 35rem;
+    height: fit-content;
+    padding: 5rem 2rem;
+    display: grid;
+    grid-row-gap: 2rem;
+}
+
+form {
+    display: grid;
+    grid-row-gap: 2rem;
+}
+
+.form-input {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 0.5rem;
+    position: relative;
+}
+
+.form-input label,
+.form-input input,
+.form-input textarea {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
+
+.form-input input,
+.form-input textarea {
+    border: 0;
+    outline: none;
+    padding: 1rem 2rem;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.form-input .btn {
+    background-color: #fff;
+    color: black;
+    border: none;
+    padding: 1.5rem 3rem;
+    text-align: center;
+    border-radius: 1rem;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.1s;
+    border: 1px solid transparent;
+    margin-top: 2rem;
+}
+
+.form-input .btn:hover {
+    background-color: #ddd;
+    border: 1px solid #fff;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.SingUpLink {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    position: absolute;
+    left: 1rem;
+    bottom: -2rem;
+}
+
+.SingUpLink a {
+    text-decoration: none;
+    color: #aa6161;
+    font-size: 1.5rem;
+    margin-right: 3rem;
+}
+
+.dashbord {
+    width: 60%;
+    height: fit-content;
+    background-color: #ddd;
+    margin: 0 auto;
+}
+
+.contener-post {
+    width: 50%;
+    margin: 2rem auto;
+    margin-top: 5rem;
+}
+
+.header {
+    background-color: #f7f3f3;
+    height: 7rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+}
+
+.end {
+    justify-self: end;
+    margin-right: 3rem;
+}
+
+.lastname {
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.logout {
+    color: red;
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin-left: 3rem;
+    text-transform: uppercase;
+}
+
+.logo {
+    margin-left: 5rem;
+}
+
+.postDisplay {
+    margin-top: 5rem;
+    width: 90%;
+    margin: 5rem auto;
+    height: fit-content;
+    padding: 5rem;
+}
+
+.posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+}
+
+.post {
+    background-color: #fff;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+}
+
+.post img {
+    width: 100%;
+    max-height: 20rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.post-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.post-content {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.deleteButton {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    text-align: center;
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.deleteButton:hover {
+    background-color: #ff4f4f;
+}
