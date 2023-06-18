@@ -69,6 +69,7 @@ btnPost.addEventListener('click',function(e){
     articleFun(aricles);
     alert('Added New Post');
 
+    
     imageUrl.value = '';
     title.value = '';
     article.value = '';
