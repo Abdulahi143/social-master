@@ -15,14 +15,14 @@ const getUserInfoFromLocal = function() {
 const userInfo = getUserInfoFromLocal();
 
 if (!userInfo) {
-  window.location.href = '/index.html';
+  window.location.href = '/log.html';
 }
 
 // Display "Hello" before the last name
 lastName.textContent = 'Hello, ' + userInfo.lastName + '!';
 
 logout.addEventListener('click', function() {
-  window.location.href = '/index.html';
+  window.location.href = '/log.html';
   localStorage.setItem('userInformation', JSON.stringify(''));
 });
 
