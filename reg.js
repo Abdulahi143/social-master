@@ -12,7 +12,14 @@ const getUserInfoFromLocal = function(){
     return users ? JSON.parse(users) : [];
 }
 
+
+
 const userInfo = getUserInfoFromLocal();
+
+if(!userInfo){
+    window.location.href = '/log.html'
+}
+
 lastName.textContent = userInfo.lastName;
 
 logout.addEventListener('click',function(){
@@ -60,7 +67,7 @@ btnPost.addEventListener('click',function(e){
     }
     
     articleFun(aricles);
-    alert('post success');
+    alert('Added New Post');
 
     imageUrl.value = '';
     title.value = '';
