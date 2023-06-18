@@ -14,6 +14,16 @@ body {
     font-size: 1.6rem;
 }
 
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  #userGreeting {
+    color: blue;
+  }
+  
 .gen-container {
     display: flex;
     align-items: center;
@@ -56,6 +66,7 @@ form {
     padding: 1rem 2rem;
     width: 100%;
     border-radius: 1rem;
+    text-transform:none;
 }
 
 .form-input .btn {

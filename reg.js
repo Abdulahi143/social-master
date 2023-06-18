@@ -1,13 +1,5 @@
-const logout = document.querySelector('.logout');
-const lastName = document.querySelector('.lastname');
-const imageUrl = document.querySelector('#imageUrl');
-const title = document.querySelector('#title');
-const article = document.querySelector('#article');
-const btnPost = document.querySelector('.btn-Post');
-const postDisplay = document.querySelector('.posts');
-
-// get user information
-const getUserInfoFromLocal = function(){
+  // get user information
+  const getUserInfoFromLocal = function(){
     let users = localStorage.getItem('userInformation');
     return users ? JSON.parse(users) : [];
 }
@@ -17,6 +9,19 @@ const userInfo = getUserInfoFromLocal();
 if(!userInfo){
     window.location.href = '/log.html';
 }
+
+// greeting the user
+const userGreeting = document.getElementById('userGreeting');
+userGreeting.textContent = userInfo.lastName;
+
+// declaration of ids and classes
+const logout = document.querySelector('.logout');
+const lastName = document.querySelector('.lastname');
+const imageUrl = document.querySelector('#imageUrl');
+const title = document.querySelector('#title');
+const article = document.querySelector('#article');
+const btnPost = document.querySelector('.btn-Post');
+const postDisplay = document.querySelector('.posts');
 
 lastName.textContent = userInfo.lastName;
 
@@ -36,7 +41,7 @@ const articleFun = function(posts){
     localStorage.setItem('posts', JSON.stringify(post));
 }
 
-//Delete Post from localStorage
+// Delete Post from localStorage
 const deletePost = function(postIndex){
     const posts = getPosts();
     const del = posts.filter(function(post, index){
@@ -69,7 +74,7 @@ btnPost.addEventListener('click',function(e){
     displayArticles();
 });
 
-const displayArticles = function(){
+const displayArticles = function(){    
     const posts = getPosts();
     postDisplay.innerHTML = '';
     posts.forEach((post, index) => {
