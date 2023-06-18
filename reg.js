@@ -56,7 +56,7 @@ btnPost.addEventListener('click',function(e){
 
 const displayArticles = function(){
     const posts = getPosts();
-    // postDisplay.innerHTML = '';
+    postDisplay.innerHTML = '';
     posts.forEach((post, index) => {
         postDisplay.innerHTML += `
             <div class="post">
