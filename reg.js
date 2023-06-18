@@ -1,8 +1,8 @@
 const logout = document.querySelector('.logout');
-const lastName = document.querySelector('.lastname')
-const imageUrl = document.querySelector('#imageUrl')
-const title = document.querySelector('#title')
-const article = document.querySelector('#article')
+const lastName = document.querySelector('.lastname');
+const imageUrl = document.querySelector('#imageUrl');
+const title = document.querySelector('#title');
+const article = document.querySelector('#article');
 const btnPost = document.querySelector('.btn-Post');
 const postDisplay = document.querySelector('.posts');
 
@@ -13,10 +13,15 @@ const getUserInfoFromLocal = function(){
 }
 
 const userInfo = getUserInfoFromLocal();
+
+if(!userInfo){
+    window.location.href = '/log.html';
+}
+
 lastName.textContent = userInfo.lastName;
 
 logout.addEventListener('click',function(){
-    window.location.href = '/log.html'
+    window.location.href = '/log.html';
     localStorage.setItem('userInformation', JSON.stringify(''));
 });
 
@@ -34,20 +39,30 @@ const articleFun = function(posts){
 //Delete Post from localStorage
 const deletePost = function(postIndex){
     const posts = getPosts();
-    posts.splice(postIndex, 1);
-    localStorage.setItem('posts', JSON.stringify(posts));
+    const del = posts.filter(function(post, index){
+        return index !== postIndex;
+    });
+
+    localStorage.setItem('posts', JSON.stringify(del));
     displayArticles();
 }
 
 btnPost.addEventListener('click',function(e){
     e.preventDefault();
-    const aricles = {
-        image : imageUrl.value,
-        title : title.value,
-        article: article.value
+    let lastArr = getPosts().length - 1;
+    lastArr = lastArr + 1;
+
+    const articles = {
+        id: lastArr,
+        image: imageUrl.value,
+        title: title.value,
+        article: article.value,
+        postBy: userInfo.username
     }
-    articleFun(aricles);
-    console.log('post success');
+
+    articleFun(articles);
+    alert('Added New Post');
+
     imageUrl.value = '';
     title.value = '';
     article.value = '';
@@ -63,7 +78,7 @@ const displayArticles = function(){
                 <img src="${post.image}" alt="invalid image" srcset="">
                 <h2>${post.title}</h2>
                 <p>${post.article}</p>
-                <button class="deleteButton" onclick="deletePost(${index})">Delete</button>
+                ${userInfo.username === post.postBy ? `<button class="deleteButton" onclick="deletePost(${index})">Delete</button>` : ''}
             </div>
         `;
     });
